@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-x9h==72o$8el18%@oj6kwq8%olam)_go2^r9_y3wgzhpbx595k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.151.255.6']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -81,12 +81,7 @@ WSGI_APPLICATION = 'eperpus.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'perpusnew',
-        'USER': 'perpus',
-        'PASSWORD': 'perpus',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+       
     }
 }
 
@@ -146,7 +141,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST_PASSWORD = ''
 # EMAIL_USE_TLS = False
 # EMAIL_PORT = '1025'
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = 'eb05c629459793'
-EMAIL_HOST_PASSWORD = 'f2aa18ce73f53c'
-EMAIL_PORT = '2525'
+
