@@ -1,3 +1,3 @@
 # E-Perpus
 
-Electronic Perpus or E-Library using python.
+Electronic Perpus or E-Library using python Django.
