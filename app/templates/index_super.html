@@ -1,0 +1,321 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Keperpus Gasskeun</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css">
+      <script src="https://kit.fontawesome.com/45fe4c1444.js" crossorigin="anonymous"></script>
+</head>
+{% block extrahead %}
+<style>
+
+</style>
+{% endblock %}
+{% block content %}
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 toggled" style="background: rgb(255,255,255);color: rgb(228,228,228);border-radius: 1px;border-width: 0px;border-right-style: solid;">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <!-- <img src="{% static 'img/clipboard-image.png' %}" width="40" height="40" style="transform: rotateY(0deg) rotateZ(14deg);width: 30px;height: 30px;margin-bottom: 7px;"> -->
+                        <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotateY(0deg) rotateZ(14deg);">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4194 0.580627C20.8295 0.580627 26.8387 6.58981 26.8387 14C26.8387 21.4101 20.8295 27.4193 13.4194 27.4193C6.00919 27.4193 0 21.4101 0 14C0 6.58981 6.00919 0.580627 13.4194 0.580627Z" fill="#428DFC"/>
+                            <path d="M9.80403 16.6346L8.88864 20.9739H6.22168L8.97666 8H11.6436L10.5082 13.3427L16.6519 8H20.155L13.7032 13.3427L17.6729 20.9739H14.1874L11.3796 15.3055L9.80403 16.6346Z" fill="white"/>
+                            </svg>
+                            
+                    </div>
+                    <div class="sidebar-brand-text mx-3"><span style="font-style: italic;color: rgb(66,141,252);">Keperpus</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link" href="/listpeminjam/"><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M18.9718 6.66081C18.8477 6.78139 18.6792 6.85028 18.5019 6.85028C17.8459 6.85028 17.314 7.36702 17.314 7.99571C17.314 8.62871 17.8397 9.14287 18.4895 9.14976C18.8557 9.1532 19.1668 9.40123 19.1668 9.75692V11.966C19.1668 13.8253 17.6154 15.3334 15.7005 15.3334H12.8104C12.5117 15.3334 12.2697 15.0982 12.2697 14.808V12.9478C12.2697 12.586 11.9771 12.3018 11.6048 12.3018C11.2413 12.3018 10.9399 12.586 10.9399 12.9478V14.808C10.9399 15.0982 10.6979 15.3334 10.4 15.3334H4.29981C2.39378 15.3334 0.833496 13.8262 0.833496 11.966V9.75692C0.833496 9.40123 1.14467 9.1532 1.5108 9.14976C2.16151 9.14287 2.68633 8.62871 2.68633 7.99571C2.68633 7.38424 2.17215 6.91918 1.49839 6.91918C1.32108 6.91918 1.15265 6.85028 1.02853 6.72971C0.904418 6.60914 0.833496 6.44551 0.833496 6.27326V4.04269C0.833496 2.18589 2.39733 0.666687 4.30867 0.666687H10.4C10.6979 0.666687 10.9399 0.901802 10.9399 1.19203V3.39677C10.9399 3.74987 11.2413 4.04269 11.6048 4.04269C11.9771 4.04269 12.2697 3.74987 12.2697 3.39677V1.19203C12.2697 0.901802 12.5117 0.666687 12.8104 0.666687H15.7005C17.6154 0.666687 19.1668 2.17383 19.1668 4.03408V6.20437C19.1668 6.37661 19.0959 6.54024 18.9718 6.66081ZM11.6048 10.6311C11.9771 10.6311 12.2697 10.3382 12.2697 9.98514V6.54024C12.2697 6.18714 11.9771 5.89432 11.6048 5.89432C11.2413 5.89432 10.9399 6.18714 10.9399 6.54024V9.98514C10.9399 10.3382 11.2413 10.6311 11.6048 10.6311Z" fill="#AAAAAA"/>
+                        </svg>
+                        <span style="color:#AAAAAA;">Peminjaman</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/listanggota/"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8527 5.68344C12.8527 8.37572 10.694 10.5345 7.99984 10.5345C5.30658 10.5345 3.14702 8.37572 3.14702 5.68344C3.14702 2.99117 5.30658 0.833313 7.99984 0.833313C10.694 0.833313 12.8527 2.99117 12.8527 5.68344ZM7.99984 19.1666C4.02368 19.1666 0.666504 18.5204 0.666504 16.027C0.666504 13.5328 4.04477 12.9094 7.99984 12.9094C11.9769 12.9094 15.3332 13.5557 15.3332 16.049C15.3332 18.5433 11.9549 19.1666 7.99984 19.1666Z" fill="#AAAAAA"/>
+                        </svg>
+                        <span style="color: #AAAAAA;">Anggota</span></a></li>
+                    <li class="nav-item"><a class="nav-link " href="/listbuku/"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5001 19.1666C13.9863 19.1666 14.4526 18.9735 14.7964 18.6297C15.1403 18.2859 15.3334 17.8195 15.3334 17.3333V2.66665C15.3334 2.18042 15.1403 1.7141 14.7964 1.37028C14.4526 1.02647 13.9863 0.833313 13.5001 0.833313H8.00008V7.24998L5.70841 5.87498L3.41675 7.24998V0.833313H2.50008C2.01385 0.833313 1.54754 1.02647 1.20372 1.37028C0.859902 1.7141 0.666748 2.18042 0.666748 2.66665V17.3333C0.666748 17.8195 0.859902 18.2859 1.20372 18.6297C1.54754 18.9735 2.01385 19.1666 2.50008 19.1666H13.5001Z" fill="#AAAAAA"/>
+                        </svg>
+                        
+                        <span style="color: #AAAAAA;">Buku</span></a></li>
+                    
+                    <li class="nav-item"><a class="nav-link active" href="/logout/"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.0709 9.29417C7.66986 9.29417 7.35275 9.60584 7.35275 10C7.35275 10.385 7.66986 10.7058 8.0709 10.7058H13.6668V15.0875C13.6668 17.3333 11.8108 19.1667 9.51651 19.1667H4.97448C2.68948 19.1667 0.833496 17.3425 0.833496 15.0967V4.9125C0.833496 2.6575 2.69881 0.833336 4.98381 0.833336H9.53517C11.8108 0.833336 13.6668 2.6575 13.6668 4.90334V9.29417H8.0709ZM16.9945 6.82852L19.6712 9.49602C19.8087 9.63352 19.882 9.80769 19.882 10.0002C19.882 10.1835 19.8087 10.3669 19.6712 10.4952L16.9945 13.1627C16.857 13.3002 16.6737 13.3735 16.4995 13.3735C16.3162 13.3735 16.1328 13.3002 15.9953 13.1627C15.7203 12.8877 15.7203 12.4385 15.9953 12.1635L17.462 10.706H13.667V9.29435H17.462L15.9953 7.83685C15.7203 7.56185 15.7203 7.11269 15.9953 6.83769C16.2703 6.55352 16.7195 6.55352 16.9945 6.82852Z" fill="#1E1E1E"/>
+                        </svg>
+                        
+                            <span style="color: rgba(0,0,0,0.8);">Logout</span></a></li>
+                    <li class="nav-item"></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="background: #428dfc;"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                {% include 'navbar.html' %}
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0" style="color: rgb(0,0,0);font-weight: bold;">Selamat Datang {{user.username}}</h3>
+                        <div class="text-md-end dataTables_filter" id="dataTable_filter">
+                            <label class="form-label">
+                            
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 15px;padding-bottom: 15px;">
+                        <div class="col">
+                            <div class="card h-100" style="border-radius: 20px; background-color: #fff5f8; color:  rgba(241, 65, 108, 0.85); box-shadow:0 1px 5px; ">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{peminjams|length}}</h4>
+                                    <h6 class=" card-subtitle mb-2" style="color:  rgba(241, 65, 108, 0.85);font-weight:700;">Total Peminjam</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100" style="border-radius: 20px; background-color: #fff8dd; color:#ffc700;  box-shadow:0 1px 5px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{total_dipinjam}}</h4>
+                                    <h6 class=" card-subtitle mb-2" style="color: #ffc700 ;font-weight:700;">Total Buku Dipinjam</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100" style="border-radius: 20px; background-color: #e8fff3; color: #50cd89;  box-shadow:0 1px 5px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{total_dikembalikan}}</h4>
+                                    <h6 class=" card-subtitle mb-2" style="color:#50cd89;font-weight:700;">Total Buku Dikembalikan</h6>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row" style="padding-top: 15px;padding-bottom: 15px;">
+                       
+                        <div class="col">
+                            <div class="card h-100" style="border-radius: 20px; background-color:rgb(246 241 255 / 85%); color: rgba(114, 57, 234, 0.85);  box-shadow:0 1px 5px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{anggotas|length}}</h4>
+                                    <h6 class=" card-subtitle mb-2" style="color: rgba(114, 57, 234, 0.85);font-weight:700;">Total Anggota</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100" style="border-radius: 20px; background-color: #f1faff; color: #00b2ff;  box-shadow:0 1px 5px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{bukus|length }}</h4>
+                                    <h6 class=" card-subtitle mb-2" style="color:#00b2ff; font-weight:700;">Total Buku</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-top: 15px;padding-bottom: 15px;">
+                       
+                        <div class="col">
+                            <div class="card h-100" style="border-radius: 20px; background-color: #f1faff; color: #00b2ff;  box-shadow:0 1px 5px; ">
+                                <div class="card-body">
+                                    <h6 class=" card-subtitle mb-2" style="color:#00b2ff; font-weight:700;">Total Peminjam berdasarkan Semester</h6>
+                                    <canvas id="anggotachart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100" style="border-radius: 20px; background-color: #f1faff; color: #00b2ff;  box-shadow:0 1px 5px;">
+                                <div class="card-body">
+                                    <h6 class=" card-subtitle mb-2" style="color:#00b2ff; font-weight:700;">Peminjam Harian</h6>
+                                 
+                                    <canvas id="peminjamchart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                       <div class="col">
+                            <div class="card h-100" style="border-radius: 20px; background-color: #f1faff; color: #00b2ff;  box-shadow:0 1px 5px;">
+                                <div class="card-body">
+                                
+                                    <h6 class=" card-subtitle mb-2" style="color:#00b2ff; font-weight:700;">Total Buku</h6>
+                                    <canvas id="bukuchart"></canvas>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                   
+                    
+                   
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Keperpus 2023</span></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+   
+{% endblock %} 
+  
+  
+
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/moment"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <script>
+    const anggotadata = new XMLHttpRequest();
+    anggotadata.open('GET', 'api/v1/anggota/', true);
+    anggotadata.onreadystatechange = function () {
+      if (anggotadata.readyState === XMLHttpRequest.DONE && anggotadata.status === 200) {
+        const data = JSON.parse(anggotadata.responseText);
+        createAnggotaChart(data);
+      }
+    };
+    anggotadata.send();
+
+    function createAnggotaChart(data) {
+      const labels = data.map(item => item.nama);
+      const values = data.map(item => item.kelas);
+
+      const ctx = document.getElementById('anggotachart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Semester',
+            data: values,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+            responsive: true,
+            indexAxis: 'y',
+        }
+      });
+    }
+  </script>
+  
+
+  <script>
+    const peminjamandata = new XMLHttpRequest();
+    peminjamandata.open('GET', 'api/v1/peminjaman/', true);
+    peminjamandata.onreadystatechange = function () {
+      if (peminjamandata.readyState === XMLHttpRequest.DONE && peminjamandata.status === 200) {
+        const data = JSON.parse(peminjamandata.responseText);
+        createPeminjamanChart(data);
+      }
+    };
+    peminjamandata.send();
+
+    function createPeminjamanChart(data) {
+      const counts = {};
+      data.forEach(item => {
+        const date = moment(item.tanggal_pinjam).format("DD MMMM YYYY");;
+        if (counts[date]) {
+          counts[date]++;
+        } else {
+          counts[date] = 1;
+        }
+      });
+
+      const labels = Object.keys(counts);
+      const values = Object.values(counts);
+
+      const ctx = document.getElementById('peminjamchart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Total Peminjam',
+            data: values,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+        }
+      });
+    }
+  </script>
+  <script>
+    const bukudata = new XMLHttpRequest();
+    bukudata.open('GET', 'api/v1/buku/', true);
+    bukudata.onreadystatechange = function () {
+      if (bukudata.readyState === XMLHttpRequest.DONE && bukudata.status === 200) {
+        const data = JSON.parse(bukudata.responseText);
+        createBukuChart(data);
+      }
+    };
+    bukudata.send();
+
+    function createBukuChart(data) {
+      const genres = {};
+      data.forEach(item => {
+        const genre = item.genre;
+        if (genres[genre]) {
+          genres[genre]++;
+        } else {
+          genres[genre] = 1;
+        }
+      });
+
+      const labels = Object.keys(genres);
+      const values = Object.values(genres);
+
+      const ctx = document.getElementById('bukuchart').getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Total Buku',
+            data: values,
+            backgroundColor:  ['rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)']
+            ,
+            borderColor:   ['rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)']
+            ,
+            
+            borderWidth: 1
+          }]
+        },
+        options: {
+            responsive: true,
+            
+            scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+        }
+      });
+    }
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/theme.js' %}"></script>
+<script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+{% endblock %}

@@ -1,0 +1,354 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block extrahead %}
+<style>
+ .dataTables_filter{
+    display: none;
+ }
+ .dataTables_paginate{
+    font-size:10px;
+ }
+ .dataTables_info{
+    font-size:14px;
+ }
+ .dataTables_length{
+    display: none;
+ }
+.paginate_button current{
+    background-color: #428DFC;
+    color: white;
+}
+ .dataTables_wrapper .sorting,
+.dataTables_wrapper .sorting_asc,
+.dataTables_wrapper .sorting_desc {
+  background-image: none !important;
+  background-repeat: no-repeat !important;
+  background-position: center right !important;
+  padding-right: 0 !important;
+}
+
+.dataTables_wrapper .sorting:before,
+.dataTables_wrapper .sorting_asc:before,
+.dataTables_wrapper .sorting_desc:before {
+  content: none !important;
+}
+table.dataTable,
+table.dataTable thead th {
+  border: none;
+}
+table.dataTable.no-footer{
+    border-bottom: 0px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+ 
+     <div id="wrapper" >
+
+       <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 toggled" style="background: rgb(255,255,255);color: rgb(228,228,228);border-radius: 1px;border-width: 0px;border-right-style: solid;">
+        <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <!-- <img src="{% static 'img/clipboard-image.png' %}" width="40" height="40" style="transform: rotateY(0deg) rotateZ(14deg);width: 30px;height: 30px;margin-bottom: 7px;"> -->
+                    <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotateY(0deg) rotateZ(14deg);">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4194 0.580627C20.8295 0.580627 26.8387 6.58981 26.8387 14C26.8387 21.4101 20.8295 27.4193 13.4194 27.4193C6.00919 27.4193 0 21.4101 0 14C0 6.58981 6.00919 0.580627 13.4194 0.580627Z" fill="#428DFC"/>
+                        <path d="M9.80403 16.6346L8.88864 20.9739H6.22168L8.97666 8H11.6436L10.5082 13.3427L16.6519 8H20.155L13.7032 13.3427L17.6729 20.9739H14.1874L11.3796 15.3055L9.80403 16.6346Z" fill="white"/>
+                        </svg>
+                        
+                </div>
+                <div class="sidebar-brand-text mx-3"><span style="font-style: italic;color: rgb(66,141,252);">Keperpus</span></div>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <ul class="navbar-nav text-light" id="accordionSidebar">
+            <li class="nav-item"><a class="nav-link active" href="/listpeminjam/">
+                <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.9715 6.66081C18.8474 6.78139 18.679 6.85028 18.5017 6.85028C17.8457 6.85028 17.3137 7.36702 17.3137 7.99571C17.3137 8.62871 17.8395 9.14287 18.4893 9.14976C18.8554 9.1532 19.1666 9.40123 19.1666 9.75692V11.966C19.1666 13.8253 17.6152 15.3334 15.7003 15.3334H12.8102C12.5114 15.3334 12.2694 15.0982 12.2694 14.808V12.9478C12.2694 12.586 11.9769 12.3018 11.6045 12.3018C11.2411 12.3018 10.9396 12.586 10.9396 12.9478V14.808C10.9396 15.0982 10.6976 15.3334 10.3997 15.3334H4.29956C2.39354 15.3334 0.833252 13.8262 0.833252 11.966V9.75692C0.833252 9.40123 1.14442 9.1532 1.51056 9.14976C2.16127 9.14287 2.68609 8.62871 2.68609 7.99571C2.68609 7.38424 2.1719 6.91918 1.49815 6.91918C1.32084 6.91918 1.1524 6.85028 1.02829 6.72971C0.904174 6.60914 0.833252 6.44551 0.833252 6.27326V4.04269C0.833252 2.18589 2.39708 0.666687 4.30843 0.666687H10.3997C10.6976 0.666687 10.9396 0.901802 10.9396 1.19203V3.39677C10.9396 3.74987 11.2411 4.04269 11.6045 4.04269C11.9769 4.04269 12.2694 3.74987 12.2694 3.39677V1.19203C12.2694 0.901802 12.5114 0.666687 12.8102 0.666687H15.7003C17.6152 0.666687 19.1666 2.17383 19.1666 4.03408V6.20437C19.1666 6.37661 19.0957 6.54024 18.9715 6.66081ZM11.6045 10.6311C11.9769 10.6311 12.2694 10.3382 12.2694 9.98514V6.54024C12.2694 6.18714 11.9769 5.89432 11.6045 5.89432C11.2411 5.89432 10.9396 6.18714 10.9396 6.54024V9.98514C10.9396 10.3382 11.2411 10.6311 11.6045 10.6311Z" fill="#428DFC"/>
+                    </svg>
+                    
+                <span style="color:rgba(0,0,0,0.8)">Peminjaman</span></a></li>
+            <li class="nav-item"><a class="nav-link " href="/listanggota/">
+                <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8527 5.68344C12.8527 8.37572 10.694 10.5345 7.99984 10.5345C5.30658 10.5345 3.14702 8.37572 3.14702 5.68344C3.14702 2.99117 5.30658 0.833313 7.99984 0.833313C10.694 0.833313 12.8527 2.99117 12.8527 5.68344ZM7.99984 19.1666C4.02368 19.1666 0.666504 18.5204 0.666504 16.027C0.666504 13.5328 4.04477 12.9094 7.99984 12.9094C11.9769 12.9094 15.3332 13.5557 15.3332 16.049C15.3332 18.5433 11.9549 19.1666 7.99984 19.1666Z" fill="#AAAAAA"/>
+                    </svg>
+                 
+                <span style="color:#AAAAAA; ">Anggota</span></a></li>
+            <li class="nav-item"><a class="nav-link " href="/listbuku/"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.5001 19.1666C13.9863 19.1666 14.4526 18.9735 14.7964 18.6297C15.1403 18.2859 15.3334 17.8195 15.3334 17.3333V2.66665C15.3334 2.18042 15.1403 1.7141 14.7964 1.37028C14.4526 1.02647 13.9863 0.833313 13.5001 0.833313H8.00008V7.24998L5.70841 5.87498L3.41675 7.24998V0.833313H2.50008C2.01385 0.833313 1.54754 1.02647 1.20372 1.37028C0.859902 1.7141 0.666748 2.18042 0.666748 2.66665V17.3333C0.666748 17.8195 0.859902 18.2859 1.20372 18.6297C1.54754 18.9735 2.01385 19.1666 2.50008 19.1666H13.5001Z" fill="#AAAAAA"/>
+                </svg>
+                
+                <span style="color: #AAAAAA;">Buku</span></a></li>
+            
+            <li class="nav-item"><a class="nav-link active" href="/logout/"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.0709 9.29417C7.66986 9.29417 7.35275 9.60584 7.35275 10C7.35275 10.385 7.66986 10.7058 8.0709 10.7058H13.6668V15.0875C13.6668 17.3333 11.8108 19.1667 9.51651 19.1667H4.97448C2.68948 19.1667 0.833496 17.3425 0.833496 15.0967V4.9125C0.833496 2.6575 2.69881 0.833336 4.98381 0.833336H9.53517C11.8108 0.833336 13.6668 2.6575 13.6668 4.90334V9.29417H8.0709ZM16.9945 6.82852L19.6712 9.49602C19.8087 9.63352 19.882 9.80769 19.882 10.0002C19.882 10.1835 19.8087 10.3669 19.6712 10.4952L16.9945 13.1627C16.857 13.3002 16.6737 13.3735 16.4995 13.3735C16.3162 13.3735 16.1328 13.3002 15.9953 13.1627C15.7203 12.8877 15.7203 12.4385 15.9953 12.1635L17.462 10.706H13.667V9.29435H17.462L15.9953 7.83685C15.7203 7.56185 15.7203 7.11269 15.9953 6.83769C16.2703 6.55352 16.7195 6.55352 16.9945 6.82852Z" fill="#1E1E1E"/>
+                </svg>
+                
+                    <span style="color: rgba(0,0,0,0.8);">Logout</span></a></li>
+            <li class="nav-item"></li>
+        </ul>
+            <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="background: #428dfc;"></button></div>
+        </div>
+    </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+               {% include 'navbar.html' %}
+                <div class="container-fluid" style="
+                padding-bottom: 24px;
+            ">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0" style="color: rgb(0,0,0);font-weight: bold;">Peminjaman</h3>
+                        <div class="text-md-end dataTables_filters" id="dataTable_filters">
+                            <label class="form-label">
+                            <form method="GET" action="{% url 'peminjaman_list' %}" style="margin-top:16px;">
+                                <div class="input-group">
+                                    
+                                        <input type="text" name="search" style=" border-radius: 10px;box-shadow: 0 1px 5px #bbbbbb;" class="form-control form-control-sm" placeholder=" Cari Peminjam" value="{{ request.GET.search }}">
+                                      </div>
+                            </form>
+                        </label>
+                        </div>
+                        <button class="btn btn-primary" type="button"  data-bs-target="#modal-1" data-bs-toggle="modal" style="font-size: 12px; background-color: 
+                        #428DFC;">+ Tambah Peminjam</button>
+                    </div>
+
+                    <div class="card shadow" style="border-radius: 15px;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 text-nowrap">
+                                    <div id="dataTable_lengths" class="dataTables_lengths" aria-controls="dataTable">
+                                        <!-- <label class="form-label">Show&nbsp;
+                                            <select id="showEntries" class="d-inline-block form-select form-select-sm">
+                                                <option value="10" selected>10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select> -->
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                 
+                                </div>
+                            </div>
+                             <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                 <table class="table my-0 data" id="dataTables" style="border-bottom: 0px;">
+                                    <thead>
+                                        <tr style="background: #F6F6F6;">
+                                            <th style="width: 210.797px; font-size: 14px;border-bottom: 1px #c1bfbf;">Ticket</th>
+                                            <th style="width: 145.203px; font-size: 14px; border-bottom: 1px #c1bfbf;">NIM</th>
+                                            <th style="width: 159.969px;font-size: 14px; border-bottom: 1px #c1bfbf;">Nama</th>
+                                            <th style="width: 230.922px; font-size: 14px; border-bottom: 1px #c1bfbf;">Buku</th>
+                                            <th style="width: 99.359px; font-size: 14px; border-bottom: 1px #c1bfbf;">Status</th>
+                                            <th style="width: 131.266px; font-size: 14px; border-bottom: 1px #c1bfbf;">Tanggal Pinjam</th>
+                                            <th style="width: 143.859px; font-size: 14px; border-bottom: 1px #c1bfbf;">Tanggal Kembali</th>
+                                            
+                                            <th style=" font-size: 14px; border-bottom: 1px #c1bfbf;"></th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for listpeminjam in list %}
+                                        <tr style="border-color: #c1bfbf;">
+                                            <td style="font-size: 14px;">#{{ listpeminjam.ticket }}</td>
+                                            <td style="font-size: 14px;">{{ listpeminjam.nim.nim }}</td>
+                                            <td style="font-size: 14px;">{{ listpeminjam.nama.nama }}</td>
+                                            <td style="font-size: 14px;">{{ listpeminjam.buku }}</td>
+                                            {% if listpeminjam.status == 'Dipinjam' %}
+                                            <td style="font-size: 14px; color:#03A08B;">
+                                                <div class="text-center" style="background-color: 
+                                                #F0FFFD; padding: 2px 5px 2px 5px; border-radius:100px;">{{ listpeminjam.status }}</div>
+                                            </td>
+                                            {% elif listpeminjam.status == 'Dikembalikan' %}
+                                            <td style="font-size: 14px; color:#f3ae00;">
+                                                <div class="text-center" style="background-color: 
+                                                #ffebc1; padding: 2px 5px 2px 5px; border-radius:100px;">{{ listpeminjam.status }}</div>
+                                            </td>
+                                            {% endif%}
+                                            <td style="font-size: 14px;">{{ listpeminjam.tanggal_pinjam }}</td>
+                                            <td style="font-size: 14px;">{{ listpeminjam.tanggal_kembali }}</td>
+                                            <td style="font-size: 14px;">
+                                                <div class="dropdown no-arrow">
+                                                    <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" >
+                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">
+
+                                                        <a class="dropdown-item" onclick="navigateToUrl('/listpeminjam/cetak/{{ listpeminjam.id }}')" style="color:#ffc700 ;">
+                                                            <i class="fa-solid fa-print" style="color: #ffc700 ;"></i>&nbsp;cetak</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <button class="dropdown-item" hx-get="/listpeminjam/edit/{{ listpeminjam.id }}" hx-trigger="click" data-bs-target="#edit-modal" hx-target="#edit-modal" data-bs-toggle="modal" style="color:#428dfc;">
+                                                            <i class="fa-solid fa-paintbrush" style="color:#428dfc;"></i>&nbsp;Edit
+                                                        </button>
+                                                          <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" onclick="navigateToUrls('/listpeminjam/delete/{{ listpeminjam.id }}')" style="color:red;">
+                                                            <i class="fa-regular fa-trash-can" style="color:red;"></i>&nbsp;delete</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                
+                                </table>
+                              
+                              </div>
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Keperpus 2023</span></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-1" style=" align-items: center; backdrop-filter: blur(3px);">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="border-radius: 16px;">
+                <form method="post" >
+                {% csrf_token %}
+                    <div class="modal-header" style="padding-right: 40px;padding-left: 40px;">
+                        <p class="modal-title" style="color: #04195B; font-weight:700;font-size: 18px;">Tambah Peminjam</p>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="padding-right: 15px;padding-left: 15px;margin-right: 0px;margin-left: 0px;">
+                            <div class="col">
+                            <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">ticket</p>
+                            {% render_field form.ticket class="form-control form-control-sm" placeholder="Masukkan Nim" style="border-radius: 10px;" readonly="True" %}
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col" style="padding-right: 40px;padding-left: 40px;">
+                                <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">nim</p>
+                                {% render_field form.nim class="form-control form-control-sm" placeholder="Masukkan Nama" style="border-radius: 10px;" %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="padding-right: 40px;padding-left: 40px;">
+                                <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">nama</p>
+                                {% render_field form.nama class="form-control form-control-sm" placeholder="Masukkan Kelas" style="border-radius: 10px;" %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="padding-right: 40px;padding-left: 40px;padding-bottom: 18px;">
+                                <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">buku</p>
+                                {% render_field form.buku class="form-control form-control-sm" placeholder="Masukkan Fakultas" style="border-radius: 10px;" %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="padding-right: 40px;padding-left: 40px;padding-bottom: 18px;">
+                                <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">status</p>
+                                {% render_field form.status class="form-control form-control-sm" placeholder="Masukkan Jurusan" style="border-radius: 10px;" %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="padding-right: 40px;padding-left: 40px;padding-bottom: 18px;">
+                                <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">tanggal_kembali</p>
+                                {% render_field form.tanggal_kembali class="form-control form-control-sm" placeholder="Masukkan Tanggal Lahir" type="date" style="border-radius: 10px;" %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  style="font-size: 14px; background-color: 
+                        #FfffFf; color: #737373; border-color: #E4E4E4;">Batal</button>
+                        <button type="submit" value="submit"  id="tambahdata" class="btn btn-primary" style="font-size: 14px; background-color: #428DFC;">Tambah Anggota</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+    <div id="edit-modal" class="modal fade" role="dialog" tabindex="-1" style="align-items: center; backdrop-filter: blur(3px);">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="border-radius: 16px;">
+                
+            </div>
+        </div>
+    </div>
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/theme.js' %}"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+        
+	$(document).ready(function(){
+		$('.data').DataTable();
+	});
+
+    {% comment %} $(document).ready(function() {
+        $('#bukuForm').submit(function(e) {
+            e.preventDefault(); 
+            var formData = $(this).serialize();
+            $.ajax({
+                type: 'POST',
+                url: '/api/v1/buku/', 
+                data: formData,
+                success: function(response) {
+                    console.log(response);
+                      },
+                error: function(xhr, errmsg, err) {
+                    
+                    console.log(xhr.status + ': ' + xhr.responseText);
+                 }
+            });
+        });
+    });  {% endcomment %}
+    function navigateToUrls(url) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Apakah Kamu Yakin ingin menghapus?',
+         
+          showCancelButton: true,
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No, Batal',
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = url;
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Hapus data Berhasil',
+            }   
+              );
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Dibatalkan',
+              text: 'Batal menghapus',
+            });
+          }
+        });
+      }
+    function navigateToUrl(url) {
+        window.location.href = url;
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Cetak data Berhasil, Silahkan dilihat :)',
+        }   
+          );
+        }
+      document.getElementById('tambahdata').addEventListener('click', function() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Tambah Peminjam Berhasil',
+        }   
+          );
+        });
+    
+</script>
+ 
+    
+
+    {% endblock %} 

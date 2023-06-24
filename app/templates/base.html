@@ -1,0 +1,107 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<html>
+
+{% block extrahead %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Table - Brand</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css">
+      <script src="https://kit.fontawesome.com/45fe4c1444.js" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <script src="https://unpkg.com/htmx.org@1.5.0"
+      integrity="sha384-oGA+prIp5Vchu6we2YkI51UtVzN9Jpx2Z7PnR1I78PnZlN8LkrCT4lqqqmDkyrvI"
+      crossorigin="anonymous"></script>
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+</head>
+<style>
+  #preloader{
+    background: rgba(92, 146, 255, 0.05);
+    backdrop-filter: blur(2px);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index:100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #preloader svg {
+ 
+    display: flex;
+    height:50px;
+    width:50px;
+  }
+  #preloader span{
+ 
+    height:100px;
+    width:50px;
+    animation: rubberBand infinite;
+    animation-duration: 2s;
+    
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .rotate-animation {
+    animation: rotate 2s linear infinite; /* Adjust the animation duration as desired */
+  }
+  .swal2-popup {
+    border-radius: 20px ;
+  }
+</style>
+{% endblock %}
+
+<body class="sidebar-toggled"  >
+
+{% block content %}
+<div id="preloader">
+  <div style="
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  /* align-items: center; */
+">
+    <svg style="
+    padding-right: 0px;
+    margin-right: 10px;
+" width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="rotate-animation">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4194 0.580627C20.8295 0.580627 26.8387 6.58981 26.8387 14C26.8387 21.4101 20.8295 27.4193 13.4194 27.4193C6.00919 27.4193 0 21.4101 0 14C0 6.58981 6.00919 0.580627 13.4194 0.580627Z" fill="#428DFC"/>
+  <path d="M9.80403 16.6346L8.88864 20.9739H6.22168L8.97666 8H11.6436L10.5082 13.3427L16.6519 8H20.155L13.7032 13.3427L17.6729 20.9739H14.1874L11.3796 15.3055L9.80403 16.6346Z" fill="white"/>
+  </svg>
+  <span id="tulisan" class="animate__animated animate__rubberBand"style="font-style: italic;color: rgb(66,141,252);">Loading Keperpus...</span>
+  </div>
+</div>
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock %}
+
+{% endblock%}
+</body>
+{% block script %}
+
+<script>
+   var loader = document.getElementById("preloader");
+  window.addEventListener("load", function(){
+    loader.style.display = "none";
+  }) 
+</script>
+{% endblock %}
+</html>

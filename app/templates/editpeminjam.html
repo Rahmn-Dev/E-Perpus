@@ -1,0 +1,60 @@
+{% extends 'peminjaman.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content" style="border-radius: 16px;">
+    <form method="post"  hx-swap="outerHTML">
+                {% csrf_token %}
+                <div class="modal-header" style="padding-right: 40px;padding-left: 40px;">
+                    <p class="modal-title" style="color: #04195B; font-weight:700;font-size: 18px;">Edit Peminjam</p>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="padding-right: 15px;padding-left: 15px;margin-right: 0px;margin-left: 0px;">
+                        <div class="col">
+                        <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">ticket</p>
+                        {% render_field forms.ticket class="form-control form-control-sm"  style="border-radius: 10px;" readonly="True" value="{{edit.ticket }}" %}
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col" style="padding-right: 40px;padding-left: 40px;">
+                            <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">nim</p>
+                            {% render_field forms.nim class="form-control form-control-sm"  style="border-radius: 10px;" readonly="True" value="{{edit.nim }}" %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="padding-right: 40px;padding-left: 40px;">
+                            <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">nama</p>
+                            {% render_field forms.nama class="form-control form-control-sm"  style="border-radius: 10px;" readonly="True"  value="{{edit.nama }}" %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="padding-right: 40px;padding-left: 40px;padding-bottom: 18px;">
+                            <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">buku</p>
+                            {% render_field forms.buku class="form-control form-control-sm"  style="border-radius: 10px;" readonly="True" value="{{edit.buku }}" %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="padding-right: 40px;padding-left: 40px;padding-bottom: 18px;">
+                            <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">status</p>
+                            {% render_field forms.status class="form-control form-control-sm"  style="border-radius: 10px;" value="{{edit.status }}" %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="padding-right: 40px;padding-left: 40px;padding-bottom: 18px;">
+                            <p style="color: #1E1E1E;margin-bottom: 0px;margin-top: 16px;">tanggal_kembali</p>
+                            {% render_field forms.tanggal_kembali class="form-control form-control-sm"  style="border-radius: 10px;" type="date" value="{{edit.tanggal_kembali }}" %}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="font-size: 14px; background-color: #FfffFf; color: #737373; border-color: #E4E4E4;">Batal</button>
+                    <button type="submit"  data-bs-dismiss="modal" value="submit" class="btn btn-primary" style="font-size: 14px; background-color: #428DFC;">Update Peminjam</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  
+ {% endblock %}
