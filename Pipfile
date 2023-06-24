@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+psycopg2 = "*"
+django-static = "*"
+django-widget-tweaks = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
+django-import-export = "*"
+django-filter = "*"
+gunicorn = "*"
+xhtml2pdf = "*"
+eventlet = "*"
+whitenoise = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
