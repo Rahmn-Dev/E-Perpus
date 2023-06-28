@@ -15,7 +15,7 @@ Once users are registered, they can reserve books through their accounts. The ad
 
 # Page Student List
 ![image](https://github.com/Rahmn-Dev/E-Perpus/assets/66931894/5f78e8b2-5e51-42df-83c7-ad5c4e31756b)
-The admin can add, edit, and delete books from the digital collection. Each book entry includes details such as title, author, genre, and availability status.
+The admin has the ability to add and manage user accounts for the library system. This includes registering new users, updating user information, and managing user roles and permissions.
 
 # Page Books
 ![image](https://github.com/Rahmn-Dev/E-Perpus/assets/66931894/4f6fce42-135d-4647-8c9e-5fa47ac177f4)
