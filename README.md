@@ -28,5 +28,5 @@ The admin can add, edit, and delete books from the digital collection. Each book
 In the next phase of development, the application will be enhanced to incorporate user reservation functionality. Users will be able to create accounts, search for available books, and make reservations through the system. The admin will then manage these reservations, approve or deny them based on availability, and notify users of the status of their requests.
 
 # Special Thanks to
-@rahmn21_ for developer
-@rstfh_ for UI Design
+@rahmn21_ for developer,  
+@rstfh_ for UI Design.
