@@ -15,6 +15,21 @@ djangorestframework
 `
 xhtml2pdf
 `
+`
+django-static
+`
+`
+django-cors-headers 
+`
+`
+django-import-export 
+`
+`
+eventlet
+`
+`
+whitenoise
+`
 
 Install Django
 ```
