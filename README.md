@@ -1,6 +1,63 @@
 # E-Perpus
 The Electronic Perpus or E-Library application developed with Python Django is designed for administrative purposes. It provides a user-friendly interface that allows the admin to manage the library's digital collection and handle reservations.
 
+# Requipment & Install
+
+`
+Requires Python version 3.10
+`
+`
+django-widget-tweaks
+`
+`
+djangorestframework
+`
+`
+xhtml2pdf
+`
+
+Install Django
+```
+pip install Django
+```
+or you can use pipenv
+```
+pip install pipenv
+```
+after install pipenv (pip environment), you can run:
+```
+pipenv install
+```
+after that, run:
+```
+pipenv shell
+```
+don't forget to setting DB and Secret Key.
+Next, you can run using:
+```
+python3 manage.py runserver [your_ip]:[your_port]
+```
+or you can using gunicorn:
+```
+gunicorn eperpus.wsgi:application --bind [your_ip]:[your_port] --workers [number] --threads [number] --worker-connections [number] --max-requests [number] --max-requests-jitter [number] --timeout [number]
+```
+is optional:
+`
+threads
+`
+`
+ worker-connections
+`
+`
+ max-requests
+`
+`
+ max-requests-jitter
+`
+`
+ timeout 
+`
+
 # Page Login
 ![image](https://github.com/Rahmn-Dev/E-Perpus/assets/66931894/82eb484b-d67b-45d0-9643-e311074989bf)
 This login page only for admin.
@@ -28,5 +85,5 @@ The admin can add, edit, and delete books from the digital collection. Each book
 In the next phase of development, the application will be enhanced to incorporate user reservation functionality. Users will be able to create accounts, search for available books, and make reservations through the system. The admin will then manage these reservations, approve or deny them based on availability, and notify users of the status of their requests.
 
 # Special Thanks to
-@rahmn21_ for developer,  
+@rahmn21_ for developer,
 @rstfh_ for UI Design.
