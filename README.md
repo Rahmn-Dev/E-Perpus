@@ -17,3 +17,5 @@ Electronic Perpus or E-Library using python Django.
 # Page Books
 ![image](https://github.com/Rahmn-Dev/E-Perpus/assets/66931894/4f6fce42-135d-4647-8c9e-5fa47ac177f4)
 
+# Example Modals
+![image](https://github.com/Rahmn-Dev/E-Perpus/assets/66931894/4fed5d48-d873-48a4-a8b5-e28292c0f23e)
